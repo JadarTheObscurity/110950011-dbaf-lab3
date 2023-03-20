@@ -1,3 +1,8 @@
+The contract is deployed at 0xcD27BC56A86895F446c99736709B0597791DA0f8
+View on etherscan: https://goerli.etherscan.io/address/0xcD27BC56A86895F446c99736709B0597791DA0f8#code
+
+
+
 1. set up `.env` file
 ```
 API_URL = "<API URL of Alchemy>"
