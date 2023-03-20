@@ -1,13 +1,17 @@
-# Sample Hardhat Project
+1. set up `.env` file
+```
+API_URL = "<API URL of Alchemy>"
+PRIVATE_KEY = "<Your wallet private key>"
+ETH_API = "<Your API key in Etherscan>"
+```
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
+2. Deploy the contract
+```
+npx hardhat run scripts/Lab3_deploy.js
+// Output: Contract deployed at: "<Address of the contract>" 
+// e.g. Contract deployed at:  0xcD27BC56A86895F446c99736709B0597791DA0f8
+```
+Verify the contract
+```
+npx hardhat verify --network goerli "<Address of the contract>"
 ```
