@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "hardhat/console.sol";
 
 contract Lab3 {
-    mapping(address => uint256) _balance;
+    mapping(address => mapping(address => uint256)) _balance;
 
     function withdraw(address token, uint256 amount) public {
         // Uncomment this line, and the import of "hardhat/console.sol", to print a log in your terminal
@@ -16,14 +16,14 @@ contract Lab3 {
         console.log("Withdraw: ", amount);
         require(_balance[msg.sender] >= amount, "You don't have enough balance.");
         IERC20(token).transfer(msg.sender, amount);
-        _balance[msg.sender] -= amount;
+        _balance[msg.sender][token] -= amount;
 
     }
 
     function deposit(address token, uint256 amount) public {
         require(IERC20(token).allowance(msg.sender, address(this)) >= amount, "Please allow more.");
         IERC20(token).transferFrom(msg.sender, address(this), amount);
-        _balance[msg.sender] += amount;
+        _balance[msg.sender][token] += amount;
     }
 
     function balanceOf(address _owner) public view returns(uint256 Calldata){
